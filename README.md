@@ -1,5 +1,5 @@
-﻿# Dicionario-PT-BR
-Dicionário PT-BR
+﻿# Palavras PT-BR (Português Brasileiro)
+## Words PT-BR (Brazilian Portuguese)
 
-**1.228.362** palavras no momento (Verbos presentes no arquivo estão conjugados).</br>
-Tamanho: 15,3mb
+<br>**Quantidade de palavras atualmente:** 1.228.362 <br>
+**Tamanho do arquivo:** 15,3mb
