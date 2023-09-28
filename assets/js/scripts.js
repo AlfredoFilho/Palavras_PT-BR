@@ -141,7 +141,7 @@ function executeQuery(inputQuery) {
 
             // If a dangerous keyword is found, show an error message
             if (dangerousKeyword !== null) {
-                showError(`Query contains dangerous keyword: ${dangerousKeyword}`);
+                showErrorModal(`Query contains dangerous keyword: ${dangerousKeyword}`);
                 return;
             }
 
