@@ -56,6 +56,7 @@ async function copyCode(block, button) {
     button.innerText = "Code Copied";
 
     setTimeout(() => {
+        const copyButtonLabel = "Copy";
         button.innerText = copyButtonLabel;
     }, 700);
 }
