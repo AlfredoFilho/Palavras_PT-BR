@@ -1,0 +1,99 @@
+<html lang="pt-BR">
+
+<head>
+    <title>Palavras_PT-BR - AlfredoFilho</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Alfredo Albélis" />
+    <meta name="keywords" content="Brazil, Brasil, Words, Palavras, PT-BR" />
+    <meta name="description" content="Brazilian Portuguese words" />
+
+    <meta name=”twitter:card” content=”summary” />
+    <meta name=”twitter:site” content=”@Alfredo_Albelis“ />
+    <meta name=”twitter:creator” content=”@Alfredo_Albelis“ />
+    <meta name="twitter:image" content="./assets/favicon.svg" />
+    <meta name="twitter:image:url" content="./assets/favicon.svg" />
+    <meta name="twitter:image:secure_url" content="./assets/favicon.svg" />
+    <meta name="twitter:title" content="Alfredo Albélis" />
+    <meta name="twitter:description" content="Brazilian Portuguese words" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://github.com/AlfredoFilho/Palavras_PT-BR" />
+    <meta property="og:image" content="./assets/favicon.svg" />
+    <meta property="og:image:url" content="./assets/favicon.svg" />
+    <meta property="og:image:secure_url" content="./assets/favicon.svg" />
+    <meta property="og:title" content="Alfredo Albélis" />
+    <meta property="og:description" content="Brazilian Portuguese words" />
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/highlight_dracula.css">
+
+    <!-- JavaScript Resources -->
+    <script src="./assets/js/sql-wasm.js"></script>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+
+    <!-- Highlight.js Initialization -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            hljs.highlightAll();
+        });
+    </script>
+
+    <!-- favicon -->
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+</head>
+
+
+<body>
+    <h3 id="wordsTitle">Palavras do português brasileiro</h3>
+    <script>
+        const locale = navigator.language;
+        if (locale !== 'pt-BR') {
+            const h3Element = document.getElementById('wordsTitle');
+            h3Element.textContent = 'Brazilian Portuguese words';
+        }
+    </script>
+
+    <table>
+        <tr>
+            <th>Table: words <span id="totalRows"></span></th>
+        </tr>
+        <tr>
+            <th>id</th>
+            <th>word</th>
+        </tr>
+        <tr>
+            <td>INTEGER</td>
+            <td>TEXT</td>
+        </tr>
+    </table>
+    <p>
+        <label style="display: block;">Enter query</label>
+        <input id="inputQuery" type="text" value='SELECT * FROM words WHERE word LIKE "%lho" AND LENGTH(word) = 10;'
+            placeholder="Example: SELECT COUNT(*) as totalRows FROM words"><br>
+        <button id="buttonExecute" onclick='executeWithLoader()'>Execute</button>
+    </p>
+
+    <pre class="preCodes notranslate" id="preContent" style="display: none;">
+        <span class="titleLang">Result query</span>
+        <code id="content" class="language-json"></code>
+    </pre>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeErrorModal()">&times;</span>
+            <p id="errorMessage"></p>
+        </div>
+    </div>
+
+    <div id="loader"></div>
+
+</body>
+
+</html>
