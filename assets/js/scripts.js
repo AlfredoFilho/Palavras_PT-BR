@@ -1,5 +1,9 @@
+var button = undefined
+
 // Wait for the DOM to be fully loaded before executing this code
 document.addEventListener("DOMContentLoaded", function () {
+
+    button = document.getElementById("buttonExecute");
 
     // Check if the browser supports WebAssembly
     if (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function') {
@@ -11,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const input = document.getElementById("inputQuery");
-    const button = document.getElementById("buttonExecute");
 
     input.focus();
     input.setSelectionRange(input.value.length, input.value.length);
@@ -89,6 +92,7 @@ async function start() {
 
         // Display the total number of rows in the HTML element with id "totalRows"
         document.getElementById("totalRows").textContent = `- ${totalRows.toLocaleString()} rows`;
+        button.disabled = false
 
     } catch (error) {
         // Handle any errors that occur during initialization
@@ -143,6 +147,17 @@ function executeQuery(inputQuery) {
             if (dangerousKeyword !== null) {
                 showErrorModal(`Query contains dangerous keyword: ${dangerousKeyword}`);
                 return;
+            }
+
+            // Check if the query already contains a LIMIT clause
+            if (!/\bLIMIT\b/i.test(inputQuery)) {
+                // If it doesn't, add " LIMIT 100" to the end of the query
+                // Check if there's a semicolon at the end and handle it accordingly
+                if (inputQuery.trim().endsWith(";")) {
+                    inputQuery = inputQuery.trim().slice(0, -1) + " LIMIT 100000;";
+                } else {
+                    inputQuery += " LIMIT 100000";
+                }
             }
 
             // Prepare and bind the input query

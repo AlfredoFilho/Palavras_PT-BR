@@ -65,7 +65,7 @@ h3 {
 p {
     text-align: center;
     background-color: #FFF;
-    padding: 25px 0px 25px 16px;
+    padding: 25px 25px 25px 16px;
     border: 1px #0000004a solid;
 }
 
@@ -81,6 +81,7 @@ input {
 #buttonExecute {
     display: inline-block;
     margin-top: 10px;
+    margin-bottom: 10px;
     position: relative;
     background-color: #4CAF50;
     border: none;

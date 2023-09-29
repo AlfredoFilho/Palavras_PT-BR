@@ -74,10 +74,12 @@
         </tr>
     </table>
     <p>
-        <label style="display: block;">Enter query</label>
-        <input id="inputQuery" type="text" value='SELECT * FROM words WHERE word LIKE "%lho" AND LENGTH(word) = 10;'
-            placeholder="Example: SELECT COUNT(*) as totalRows FROM words"><br>
-        <button id="buttonExecute" onclick='executeWithLoader()'>Execute</button>
+        <label style="display: block;">Enter query:</label>
+        <input id="inputQuery" type="text" value='SELECT * FROM words WHERE word LIKE "%lho"'
+            placeholder="SELECT COUNT(*) as totalRows FROM words"><br>
+        <button id="buttonExecute" onclick='executeWithLoader()' disabled>Execute</button><br>
+
+        Because the database is very large, queries on the website have a LIMIT of 100000, to perform the complete query, use the <a href="https://github.com/AlfredoFilho/Palavras_PT-BR/tree/master/scripts" target="_blank">scripts in the repository</a>.
     </p>
 
     <pre class="preCodes notranslate" id="preContent" style="display: none;">
