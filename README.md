@@ -1,6 +1,8 @@
 ﻿# Palavras PT-BR (Português Brasileiro)
 ## Words PT-BR (Brazilian Portuguese)
 
+<hr>
+
 **Palavras_PT-BR.db**: A sqlite database <br>
 **Palavras_PT-BR.txt**: Text file, one word per line <br>
 **Current number of words:** 1.916.706<br>
