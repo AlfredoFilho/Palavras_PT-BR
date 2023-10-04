@@ -1,8 +1,7 @@
 import sqlite3
 
-fileName = "Palavras_PT-BR"
-dbFileName = f'{fileName}.db'
-txtFileName = f'{fileName}.txt'
+dbFileName = "../Palavras_PT-BR.db"
+txtFileName = "../Palavras_PT-BR.txt"
 
 try:
     # Establish a connection to the SQLite database

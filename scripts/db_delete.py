@@ -5,8 +5,7 @@ import sqlite3
 # Define the delete query
 deleteQuery = 'DELETE FROM words WHERE word = "nova_palavra"'
 
-fileName = "Palavras_PT-BR"
-dbFileName = f'{fileName}.db'
+dbFileName = "../Palavras_PT-BR.db"
 
 try:
     # Establish a connection to the SQLite database

@@ -6,8 +6,7 @@ import sqlite3
 # Define the select query
 selectQuery = 'SELECT COUNT(*) FROM words'
 
-fileName = "Palavras_PT-BR"
-dbFileName = f'{fileName}.db'
+dbFileName = "../Palavras_PT-BR.db"
 
 try:
     # Establish a connection to the SQLite database

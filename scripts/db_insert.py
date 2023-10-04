@@ -3,8 +3,7 @@ import sqlite3
 # Define a new word to be inserted into the database
 newWord = "nova_palavra"
 
-fileName = "Palavras_PT-BR"
-dbFileName = f'{fileName}.db'
+dbFileName = "../Palavras_PT-BR.db"
 
 try:
     # Establish a connection to the SQLite database
