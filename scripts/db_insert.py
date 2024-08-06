@@ -1,4 +1,4 @@
-import sqlite3
+import pysqlite3 as sqlite3
 
 # Define a new word to be inserted into the database
 newWord = "nova_palavra"
@@ -25,13 +25,13 @@ try:
     else:
         # If the word already exists, print a message
         print(f"Word '{newWord}' already exists in the SQLite database.")
-
-    # Close the database connection
-    connection.close()
-
 except sqlite3.Error as e:
     # Handle SQLite-specific errors
     print(f"SQLite Error: {e}")
 except Exception as e:
     # Handle other general exceptions
     print(f"An error occurred: {e}")
+finally:
+    # Ensure the connection is closed
+    if connection:
+        connection.close()

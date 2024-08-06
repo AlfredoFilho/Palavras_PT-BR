@@ -1,11 +1,11 @@
-import sqlite3
+import pysqlite3 as sqlite3
 
-# https://www.w3schools.com/sql/sql_delete.asp
-
-# Define the delete query
-deleteQuery = 'DELETE FROM words WHERE word = "nova_palavra"'
+# Define the word to be deleted
+word_to_delete = "nova_palavra"
 
 dbFileName = "../Palavras_PT-BR.db"
+
+deleteQuery = 'DELETE FROM words WHERE word = ?'
 
 try:
     # Establish a connection to the SQLite database
@@ -13,7 +13,7 @@ try:
     cursor = connection.cursor()
 
     # Execute the SQL query to delete records from the 'words' table based on the criterion
-    cursor.execute(deleteQuery)
+    cursor.execute(deleteQuery, (word_to_delete,))
 
     # Check how many records were affected (deleted)
     deleted_count = cursor.rowcount
@@ -25,12 +25,13 @@ try:
     else:
         print(f"No records were found.\nQuery: {deleteQuery}")
 
-    # Close the connection to the database
-    connection.close()
-
 except sqlite3.Error as e:
     # Handle SQLite-specific errors
     print(f"SQLite Error: {e}")
 except Exception as e:
     # Handle other general exceptions
     print(f"An error occurred: {e}")
+finally:
+    # Ensure the connection is closed
+    if connection:
+        connection.close()

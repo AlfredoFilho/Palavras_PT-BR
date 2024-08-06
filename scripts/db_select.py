@@ -1,7 +1,4 @@
-import sqlite3
-
-# https://www.w3schools.com/sql/sql_like.asp
-# https://www.w3schools.com/sql/sql_count.asp
+import pysqlite3 as sqlite3
 
 # Define the select query
 selectQuery = 'SELECT COUNT(*) FROM words'

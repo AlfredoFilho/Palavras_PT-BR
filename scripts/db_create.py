@@ -1,6 +1,6 @@
-import sqlite3
+import pysqlite3 as sqlite3
 
-dbFileName = "../Palavras_PT-BR.db"
+dbFileName = "../Palavras_PT-BR2.db"
 txtFileName = "../Palavras_PT-BR.txt"
 
 try:
@@ -17,15 +17,14 @@ try:
     ''')
 
     # Read words from the text file and insert them into the database
-    for line in open(txtFileName):
-        
-        word = line.strip()
-        cursor.execute('INSERT INTO words (word) VALUES (?)', (word,))
+    with open(txtFileName, 'r') as file:
+        for line in file:
+            word = line.strip()
+            if word:  # Ensure the word is not empty
+                cursor.execute('INSERT INTO words (word) VALUES (?)', (word,))
 
     # Commit the changes and close the database connection
     connection.commit()
-    connection.close()
-
     print("Words successfully inserted into the SQLite database!")
 
 except sqlite3.Error as e:
@@ -34,3 +33,7 @@ except sqlite3.Error as e:
 except Exception as e:
     # Handle other general exceptions
     print(f"An error occurred: {e}")
+finally:
+    # Ensure the connection is closed
+    if connection:
+        connection.close()
