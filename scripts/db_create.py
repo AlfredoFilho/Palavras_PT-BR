@@ -1,6 +1,6 @@
 import pysqlite3 as sqlite3
 
-dbFileName = "../Palavras_PT-BR2.db"
+dbFileName = "../Palavras_PT-BR.db"
 txtFileName = "../Palavras_PT-BR.txt"
 
 try:
